@@ -1,4 +1,4 @@
-export function fmt(n, c = "USD") {
+export function fmt(n, c = "JPY") {
   return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: c,
