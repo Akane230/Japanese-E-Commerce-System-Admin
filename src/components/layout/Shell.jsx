@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import useAuthStore from "../../stores/authStore";
 import useUIStore from "../../stores/uiStore";
 import useToastStore from "../../stores/toastStore";
-import Sidebar from "./SideBar";
+import Sidebar from "./Sidebar";
 import Topbar from "./Topbar";
 import DashboardPage from "../pages/DashboardPage";
 import OrdersPage from "../pages/OrdersPage";
