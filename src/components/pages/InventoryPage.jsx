@@ -19,9 +19,8 @@ export default function InventoryPage() {
   const {
     data: allData,
     isLoading: loading,
-    refetch: refetchAll,
   } = useInventory(page);
-  const { data: lowData, refetch: refetchLow } = useLowStock(page);
+  const { data: lowData } = useLowStock(page);
 
   const items = allData?.results || [];
   const lowStock = lowData?.results || [];
@@ -50,15 +49,6 @@ export default function InventoryPage() {
               )}
             </span>
           </div>
-          <button
-            className="topbar-btn btn-outline btn-sm"
-            onClick={() => {
-              refetchAll();
-              refetchLow();
-            }}
-          >
-            <Ic.Refresh /> Refresh
-          </button>
         </div>
         {loading ? (
           <Loading />

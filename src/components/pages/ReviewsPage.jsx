@@ -17,7 +17,7 @@ export default function ReviewsPage() {
   const [tab, setTab] = useState("pending");
   const [selected, setSelected] = useState(null);
 
-  const { data, isLoading, refetch } = useAdminReviews(tab, page);
+  const { data, isLoading } = useAdminReviews(tab, page);
   const reviews = data?.results || [];
   const count = data?.count || 0;
 
@@ -53,9 +53,6 @@ export default function ReviewsPage() {
               </span>
             ))}
           </div>
-          <button className="topbar-btn btn-outline btn-sm" onClick={refetch}>
-            <Ic.Refresh />
-          </button>
         </div>
         {isLoading ? (
           <Loading />

@@ -1,16 +1,46 @@
-# React + Vite
+# Admin README
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+The admin portal is a React app (via Vite) for store management: dashboard insights, order and payment review, product/category/inventory management, review moderation and operations.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
 
-## React Compiler
+- React with Vite
+- Axios for backend API calls
+- Zustand for state stores (`authStore`, `uiStore`, `toastStore`)
+- CSS for layout (sidebar, topbar, modals)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Key Modules
 
-## Expanding the ESLint configuration
+- `components/layout/AppRouter.jsx` controls auth gating (login or app shell)
+- `components/layout/Shell.jsx` provides sidebar, topbar, and main content with page mapping
+- `components/pages/` includes screens for Dashboard, Orders, Payments, Products, Categories, Inventory, Reviews
+- `components/modals/` includes actions for order shipping, refunds, review actions, product/category forms
+- `stores/authStore.js` handles login API flow and token storage
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## API Services
+
+- Auth: `api/auth/admin-login`, `logout`, `me`
+- Dashboard metrics: `api/payments/admin/pending`, `api/inventory/low-stock`, `api/reviews/admin/pending`
+- CRUD endpoints from the backend modules matching orders, payments, products, categories, inventory, reviews
+
+## Setup
+
+```bash
+cd admin
+npm install
+npm run dev
+```
+
+## Build
+
+```bash
+npm run build
+```
+
+## Notes
+
+- Admin session state is in Zustand and persists with token checks.
+- `Shell` polls notification counts for badges when page updates.
+- UI uses a sidebar and topbar plus modal dialogs for admin actions.
