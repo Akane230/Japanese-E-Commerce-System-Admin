@@ -29,7 +29,6 @@ export default function OrdersPage() {
   const {
     data: orderData,
     isLoading: loading,
-    refetch,
   } = useOrders({ page, status: statusFilter, search });
 
   const orders = orderData?.results || [];
@@ -86,12 +85,6 @@ export default function OrdersPage() {
               ))}
             </select>
           </div>
-          <button
-            className="topbar-btn btn-outline btn-sm"
-            onClick={() => refetch()}
-          >
-            <Ic.Refresh /> Refresh
-          </button>
         </div>
 
         {loading ? (
