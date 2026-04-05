@@ -771,7 +771,7 @@ export default function ProductModal({ productSlug, onClose, onSaved }) {
                   >
                     <option value="JPY">JPY (Japanese Yen)</option>
                     <option value="USD">USD (US Dollar)</option>
-                    <option value="EUR">EUR (Euro)</option>
+                    <option value="PHP">PHP (Philippine Peso)</option>
                   </select>
                 </div>
                 <div className="form-group">
