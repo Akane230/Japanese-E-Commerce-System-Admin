@@ -227,7 +227,10 @@ export default function ProductsPage() {
                     </td>
                     <td>
                       <div style={{ fontWeight: 500 }}>
-                        {fmt(p.pricing?.sale_price || p.pricing?.base_price)}
+                        {fmt(
+                          p.pricing?.sale_price || p.pricing?.base_price,
+                          p.pricing?.currency || "JPY",
+                        )}
                       </div>
                       {p.pricing?.sale_price && (
                         <div
@@ -237,7 +240,10 @@ export default function ProductsPage() {
                             textDecoration: "line-through",
                           }}
                         >
-                          {fmt(p.pricing?.base_price)}
+                          {fmt(
+                            p.pricing?.base_price,
+                            p.pricing?.currency || "JPY",
+                          )}
                         </div>
                       )}
                     </td>
